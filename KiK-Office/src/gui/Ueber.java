@@ -26,10 +26,11 @@ public class Ueber extends JDialog {
 	 */
 	private static final long serialVersionUID = -3989400419083449431L;
 	private final JPanel contentPanel = new JPanel();
-	
+
 	/**
 	 * Create the dialog.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
 	public Ueber() throws IOException {
 		setTitle("Urheber Informationen");
@@ -40,13 +41,14 @@ public class Ueber extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		BufferedImage myPicture = ImageIO.read(new File("image/Ueber.png"));
 		GridBagLayout gbl_contentPanel = new GridBagLayout();
-		gbl_contentPanel.columnWidths = new int[]{222, 1, 0};
-		gbl_contentPanel.rowHeights = new int[]{1, 0};
-		gbl_contentPanel.columnWeights = new double[]{1.0, 0.0, Double.MIN_VALUE};
-		gbl_contentPanel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_contentPanel.columnWidths = new int[] { 222, 1, 0 };
+		gbl_contentPanel.rowHeights = new int[] { 1, 0 };
+		gbl_contentPanel.columnWeights = new double[] { 1.0, 0.0, Double.MIN_VALUE };
+		gbl_contentPanel.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 		contentPanel.setLayout(gbl_contentPanel);
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		JLabel picLabel = new JLabel(new ImageIcon(myPicture.getScaledInstance(this.getWidth(), this.getHeight()-90, Image.SCALE_SMOOTH)));
+		JLabel picLabel = new JLabel(
+				new ImageIcon(myPicture.getScaledInstance(this.getWidth(), this.getHeight() - 90, Image.SCALE_SMOOTH)));
 		GridBagConstraints gbc_picLabel = new GridBagConstraints();
 		gbc_picLabel.anchor = GridBagConstraints.NORTHWEST;
 		gbc_picLabel.gridx = 1;

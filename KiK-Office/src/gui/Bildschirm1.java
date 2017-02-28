@@ -15,10 +15,10 @@ public class Bildschirm1 extends JPanel {
 	 * Create the panel.
 	 */
 	public Bildschirm1() {
-		
+
 		JCheckBox chckbxNewCheckBox = new JCheckBox("New check box");
 		add(chckbxNewCheckBox);
-		
+
 		JLabel lblNewLabel = new JLabel("New label");
 		add(lblNewLabel);
 

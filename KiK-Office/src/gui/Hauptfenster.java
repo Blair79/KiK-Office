@@ -119,28 +119,26 @@ public class Hauptfenster extends JFrame {
 
 		JToolBar toolBar = new JToolBar();
 		panel.add(toolBar);
-		
+
 		JButton btnGo = new JButton("Go");
 		toolBar.add(btnGo);
-		
-				txtEingabe = new JTextField();
-				
-				txtEingabe.addFocusListener(new FocusAdapter() {
-					@Override
-					public void focusGained(FocusEvent e) {
-						if(!txtEingabe.getText().startsWith("//"))
-								txtEingabe.setText("//");
-					}
-				});
-				txtEingabe.setText("Eingabe Transaktionscode");
-				txtEingabe.setEditable(true);
-				toolBar.add(txtEingabe);
-		
-				JButton btnOk = new JButton("ok");
-				
-				toolBar.add(btnOk);
-				
-				
+
+		txtEingabe = new JTextField();
+
+		txtEingabe.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (!txtEingabe.getText().startsWith("//"))
+					txtEingabe.setText("//");
+			}
+		});
+		txtEingabe.setText("Eingabe Transaktionscode");
+		txtEingabe.setEditable(true);
+		toolBar.add(txtEingabe);
+
+		JButton btnOk = new JButton("ok");
+
+		toolBar.add(btnOk);
 
 		JRadioButton rdbtnTest_1 = new JRadioButton("Ansicht");
 		rdbtnTest_1.setSelected(true);
@@ -188,29 +186,30 @@ public class Hauptfenster extends JFrame {
 
 		JLabel lblMitarbeiterX = new JLabel("Mitarbeiter X");
 		panel_4.add(lblMitarbeiterX);
-		
+
 		txtEingabe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//System.out.println(tabbedPane.getTitleAt(1));
+				// System.out.println(tabbedPane.getTitleAt(1));
 				if (txtEingabe.getText().startsWith("//"))
-					if (tabbedPane.getTabCount()>0){
-					for (int i=0;i<tabbedPane.getTabCount();i++)
-						if (tabbedPane.getTitleAt(i)!=txtEingabe.getText().substring(2))
-							{
-							System.out.println(tabbedPane.getTitleAt(i));break;}
-					}
-					else
-					switch (txtEingabe.getText().substring(2)) {
-		            case "Bildschirm1":
-		            	tabbedPane.addTab(txtEingabe.getText().substring(2), null, new Bildschirm1(), null);
-		                     break;
-		            case "Bildschirm2":
-		            	tabbedPane.addTab(txtEingabe.getText().substring(2), null, new Bildschirm2(), null);
-		                     break;
-		            
-		            default: lblStatusleiste.setText("Transaktion "+txtEingabe.getText().substring(2)+" unbekannt");
-		                     break;
-		        }
+					if (tabbedPane.getTabCount() > 0) {
+						for (int i = 0; i < tabbedPane.getTabCount(); i++)
+							if (tabbedPane.getTitleAt(i) != txtEingabe.getText().substring(2)) {
+								System.out.println(tabbedPane.getTitleAt(i));
+								break;
+							}
+					} else
+						switch (txtEingabe.getText().substring(2)) {
+						case "Bildschirm1":
+							tabbedPane.addTab(txtEingabe.getText().substring(2), null, new Bildschirm1(), null);
+							break;
+						case "Bildschirm2":
+							tabbedPane.addTab(txtEingabe.getText().substring(2), null, new Bildschirm2(), null);
+							break;
+
+						default:
+							lblStatusleiste.setText("Transaktion " + txtEingabe.getText().substring(2) + " unbekannt");
+							break;
+						}
 			}
 		});
 
@@ -219,30 +218,31 @@ public class Hauptfenster extends JFrame {
 				System.out.println(txtEingabe.getText());
 				if (txtEingabe.getText().startsWith("//"))
 					switch (txtEingabe.getText().substring(2)) {
-		            case "Bildschirm1":
-		            	tabbedPane.addTab(txtEingabe.getText().substring(2), null, new Bildschirm1(), null);
-		                     break;
-		            case "Bildschirm2":
-		            	tabbedPane.addTab(txtEingabe.getText().substring(2), null, new Bildschirm2(), null);
-		                     break;
-		            
-		            default: lblStatusleiste.setText("Transaktion "+txtEingabe.getText().substring(2)+" unbekannt");
-		                     break;
-		        }
-				
+					case "Bildschirm1":
+						tabbedPane.addTab(txtEingabe.getText().substring(2), null, new Bildschirm1(), null);
+						break;
+					case "Bildschirm2":
+						tabbedPane.addTab(txtEingabe.getText().substring(2), null, new Bildschirm2(), null);
+						break;
+
+					default:
+						lblStatusleiste.setText("Transaktion " + txtEingabe.getText().substring(2) + " unbekannt");
+						break;
+					}
+
 			}
 		});
-		
+
 		tree.addTreeSelectionListener(new TreeSelectionListener() {
 			public void valueChanged(TreeSelectionEvent e) {
 				TreePath path = e.getNewLeadSelectionPath();
-				//System.out.println(path.getLastPathComponent().toString());
-				 if (path.getLastPathComponent().toString() == "Bildschirm1") {
-						tabbedPane.addTab(path.getLastPathComponent().toString(), null, new Bildschirm1(), null);
-					}
-				 if (path.getLastPathComponent().toString() == "Bildschirm2") {
-						tabbedPane.addTab(path.getLastPathComponent().toString(), null, new Bildschirm2(), null);
-					}
+				// System.out.println(path.getLastPathComponent().toString());
+				if (path.getLastPathComponent().toString() == "Bildschirm1") {
+					tabbedPane.addTab(path.getLastPathComponent().toString(), null, new Bildschirm1(), null);
+				}
+				if (path.getLastPathComponent().toString() == "Bildschirm2") {
+					tabbedPane.addTab(path.getLastPathComponent().toString(), null, new Bildschirm2(), null);
+				}
 			}
 		});
 	}
